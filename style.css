@@ -10,6 +10,8 @@
   --slate-200: #e2e8f0;
   --slate-100: #f1f5f9;
 
+  --blue-900: #1e3a8a;
+  --blue-800: #1e40af;
   --blue-700: #1d4ed8;
   --blue-400: #60a5fa;
 }
@@ -29,6 +31,10 @@ html {
 body {
   color: var(--gray-8);
   font-family: "Montserrat", sans-serif;
+
+  background: linear-gradient(45deg, var(--slate-950), var(--slate-800));
+  width: 100vw;
+  min-height: 100vh;
 
   font-size: 1.6rem;
   overflow-x: hidden;
@@ -67,4 +73,28 @@ ul {
 
 img {
   max-width: 100%;
+}
+
+.mouse-follower {
+  background: linear-gradient(45deg, var(--blue-900), var(--blue-800));
+  animation: 20s move infinite;
+  filter: blur(200px);
+
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  position: fixed;
+  border-radius: 50%;
+}
+
+@keyframes move {
+  0% {
+    rotate: 0;
+  }
+  50% {
+    rotate: 360deg;
+  }
+  100% {
+    rotate: 0;
+  }
 }
