@@ -116,6 +116,11 @@ h3 {
 
 /************************** HERO **************************/
 .hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -132,11 +137,18 @@ h3 {
   letter-spacing: 2px;
 }
 
+.hero__arrows-down {
+  margin-top: 16px;
+  flex-basis: 4.8rem;
+  stroke: var(--slate-300);
+}
+
 .cta {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 12px;
+  margin-top: 16px;
 }
 
 .cta > * {
