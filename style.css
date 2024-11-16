@@ -155,7 +155,7 @@ body * {
   position: fixed;
   z-index: 3;
   bottom: 2.5%;
-  left: 50%;
+  left: 50vw;
 
   transform: translate(-50%);
 
@@ -163,6 +163,10 @@ body * {
   align-items: center;
   justify-content: center;
   gap: 3.2rem;
+}
+
+.navbar__btn * {
+  z-index: 3;
 }
 
 .navbar__btn:link,
@@ -479,4 +483,40 @@ body * {
 }
 
 .timeline__year {
+}
+
+/************************** FOOTER **************************/
+
+/* .footer-transition {
+  width: 100vw;
+  height: 30rem;
+  background: linear-gradient(transparent 0%, var(--blue-400) 25%);
+} */
+
+.footer-line {
+  position: absolute;
+  left: 0;
+  transform: translateX(-50%);
+  width: 200vw;
+
+  background: var(45deg, var(--slate-900), var(--slate-950));
+}
+
+.footer {
+  position: relative;
+  z-index: 1;
+  padding: 3.6rem;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 3.2rem;
 }
