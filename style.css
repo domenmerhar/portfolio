@@ -15,6 +15,13 @@
   --blue-700: #1d4ed8;
   --blue-600: #2563eb;
   --blue-400: #60a5fa;
+
+  --react: #61dafb;
+  --nest: #e92747;
+  --node: #3c873a;
+  --typescript: #007acc;
+  --css: #264de4;
+  --html: #e44d26;
 }
 
 *,
@@ -82,6 +89,13 @@ h3 {
   color: var(--slate-100);
   font-family: "Inter", sans-serif;
   font-weight: 900;
+}
+
+.text-gradient {
+  background: -webkit-linear-gradient(45deg, var(--blue-700), var(--blue-400));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 hr {
@@ -190,4 +204,67 @@ body > * {
   font-weight: 600;
   color: var(--slate-400);
   display: inline-block;
+}
+
+/************************** SKILLS **************************/
+.skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills__header {
+  font-size: 4.8rem;
+  font-weight: 800;
+  color: var(--slate-100);
+  margin-bottom: 32px;
+}
+
+.technologies {
+  display: flex;
+  gap: 128px;
+}
+
+.technology {
+  position: relative;
+}
+
+.technologies img {
+  height: 128px;
+}
+
+.glow {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(200px);
+  z-index: 1;
+}
+
+.react-glow {
+  background: linear-gradient(45deg, var(--react), transparent);
+}
+
+.nest-glow {
+  background: linear-gradient(45deg, var(--nest), transparent);
+}
+
+.node-glow {
+  background: linear-gradient(45deg, var(--node), transparent);
+}
+
+.typescript-glow {
+  background: linear-gradient(45deg, var(--typescript), transparent);
+}
+
+.css-glow {
+  background: linear-gradient(45deg, var(--css), transparent);
+}
+
+.html-glow {
+  background: linear-gradient(45deg, var(--html), transparent);
 }
