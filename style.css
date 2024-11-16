@@ -331,6 +331,7 @@ body * {
 
 .project__cards {
   display: flex;
+  flex-wrap: wrap;
   gap: 3.2rem;
   justify-content: center;
   align-items: center;
@@ -406,4 +407,43 @@ body * {
   height: 400px;
   z-index: 1;
   background-color: var(--blue-900);
+}
+
+/************************** TIMELINE **************************/
+.timeline {
+  position: relative;
+}
+
+.timeline__header {
+  font-size: 4.8rem;
+  font-weight: 800;
+  margin-bottom: 12.8rem;
+}
+
+.timeline__line {
+  position: absolute;
+  height: 90%;
+  background: linear-gradient(var(--blue-900), var(--blue-400));
+  border-radius: 1000px;
+  width: 4px;
+  bottom: 0%;
+}
+
+.timeline__event {
+  display: flex;
+  gap: 3.2rem;
+  justify-content: center;
+}
+
+.timeline__content {
+}
+
+.timeline__icon-holder {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.timeline__year {
 }
