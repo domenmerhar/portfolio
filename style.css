@@ -230,7 +230,7 @@ body > * {
 
 .technologies {
   display: flex;
-  gap: 128px;
+  gap: 156px;
 
   flex-wrap: wrap;
   justify-content: center;
@@ -238,10 +238,13 @@ body > * {
 
 .technology {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .technologies img {
-  height: 128px;
+  width: 128px;
 }
 
 .glow {
