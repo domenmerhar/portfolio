@@ -42,10 +42,15 @@ body {
 
   background: linear-gradient(45deg, var(--slate-950), var(--slate-800));
   width: 100vw;
-  min-height: 100vh;
 
   font-size: 1.6rem;
   overflow-x: hidden;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 input,
@@ -146,6 +151,7 @@ body > * {
   justify-content: center;
   align-items: center;
   text-align: center;
+  min-height: 100vh;
 }
 
 .hero__greeting {
@@ -211,18 +217,23 @@ body > * {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .skills__header {
   font-size: 4.8rem;
   font-weight: 800;
   color: var(--slate-100);
-  margin-bottom: 32px;
+  margin-bottom: 12.8rem;
 }
 
 .technologies {
   display: flex;
   gap: 128px;
+
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .technology {
