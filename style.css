@@ -143,6 +143,48 @@ body > * {
   }
 }
 
+/************************** NAV **************************/
+
+.navbar {
+  width: 50rem;
+  height: 6.4rem;
+
+  position: fixed;
+  z-index: 3;
+  bottom: 2.5%;
+  left: 50%;
+
+  transform: translate(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+.navbar__btn:link,
+.navbar__btn:visited {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+
+  text-decoration: none;
+  color: var(--slate-100);
+
+  background: linear-gradient(45deg, var(--slate-800), var(--slate-700));
+  transition: all 200ms;
+}
+
+.navbar__btn:hover,
+.navbar__btn:active {
+  transform: translateY(-4px) scale(1.1);
+}
+
 /************************** HERO **************************/
 .hero {
   height: 100vh;
