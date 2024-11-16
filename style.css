@@ -355,6 +355,7 @@ body * {
 .project__card-big:hover,
 .project__card-small:hover {
   transform: translateY(-10%);
+  cursor: pointer;
 }
 
 .project__card-small img,
