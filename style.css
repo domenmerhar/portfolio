@@ -96,6 +96,14 @@ h3 {
   font-weight: 900;
 }
 
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
 .text-gradient {
   background: -webkit-linear-gradient(45deg, var(--blue-700), var(--blue-400));
   background-clip: text;
@@ -126,7 +134,7 @@ hr {
   z-index: 2;
 } */
 
-body > * {
+body * {
   position: relative;
   z-index: 2;
 }
@@ -187,13 +195,7 @@ body > * {
 
 /************************** HERO **************************/
 .hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  min-height: 100vh;
 }
 
 .hero__greeting {
@@ -256,17 +258,11 @@ body > * {
 
 /************************** SKILLS **************************/
 .skills {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
 }
 
 .skills__header {
   font-size: 4.8rem;
   font-weight: 800;
-  color: var(--slate-100);
   margin-bottom: 12.8rem;
 }
 
@@ -323,4 +319,14 @@ body > * {
 
 .html-glow {
   background: linear-gradient(45deg, var(--html), transparent);
+}
+
+/************************** PROJECTS **************************/
+.projects {
+}
+
+.projects__header {
+  font-size: 4.8rem;
+  font-weight: 800;
+  margin-bottom: 12.8rem;
 }
