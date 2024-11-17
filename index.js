@@ -73,23 +73,28 @@ window.addEventListener("mousemove", function (event) {
 contactBtns.forEach((btn) =>
   btn.addEventListener("click", function () {
     modal.innerHTML = contactForm;
-
-    const backdrop = document.querySelector(".backdrop");
-    function handleBackdropClick(e) {
-      if (e.target !== backdrop) return;
-      modal.innerHTML = "";
-      backdrop.removeEventListener("click", handleBackdropClick);
-    }
-
-    backdrop.addEventListener("click", handleBackdropClick);
+    window.document.body.classList.add("disable-scroll");
 
     const subject = document.querySelector(".contact__input");
     const message = document.querySelector(".contact__textarea");
-
     const subjectError = document.querySelector(".contact__subject-error");
     const messageError = document.querySelector(".contact__message-error");
-
     const formButton = document.querySelector(".contact__button");
+    const backdrop = document.querySelector(".backdrop");
+
+    const reset = () => {
+      modal.innerHTML = "";
+      backdrop.removeEventListener("click", handleBackdropClick);
+      window.document.body.classList.remove("disable-scroll");
+    };
+
+    function handleBackdropClick(e) {
+      if (e.target !== backdrop) return;
+
+      reset();
+    }
+
+    backdrop.addEventListener("click", handleBackdropClick);
 
     function handleFormSubmit(e) {
       e.preventDefault();
@@ -106,8 +111,8 @@ contactBtns.forEach((btn) =>
       if (!subject.value || !message.value) return;
 
       window.location.href = `mailto:${email}?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(messageText)}`;
-      modal.innerHTML = "";
-      backdrop.removeEventListener("click", handleFormSubmit);
+
+      reset();
     }
 
     formButton.addEventListener("click", handleFormSubmit);
