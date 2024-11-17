@@ -799,6 +799,8 @@ body * {
   align-items: center;
   gap: 16px;
   justify-content: center;
+  margin-top: -16px;
+  margin-bottom: 12px;
 }
 
 .modal__project-technology {
@@ -817,7 +819,7 @@ body * {
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
-  filter: blur(70px);
+  filter: blur(50px);
 }
 
 .modal__description {
