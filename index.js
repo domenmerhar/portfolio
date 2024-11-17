@@ -1,6 +1,11 @@
 "use strict";
 
-import { addClassOnIntersection, removeClassOnIntersection } from "./model.js";
+import {
+  addClassOnIntersection,
+  handleCardClick,
+  handleMouseMove,
+  removeClassOnIntersection,
+} from "./model.js";
 import {
   bookViewerCardHTML,
   contactForm,
@@ -66,13 +71,7 @@ const lazyLoadObserver = new IntersectionObserver(
   { threshold: 0.5 }
 );
 
-window.addEventListener("mousemove", function (event) {
-  const { height, width } = mouseFollower.getBoundingClientRect();
-  const { clientX, clientY } = event;
-
-  mouseFollower.style.left = clientX - width / 2 + "px";
-  mouseFollower.style.top = clientY - height / 2 + "px";
-});
+window.addEventListener("mousemove", handleMouseMove(mouseFollower));
 
 contactBtns.forEach((btn) =>
   btn.addEventListener("click", function () {
@@ -122,26 +121,6 @@ contactBtns.forEach((btn) =>
     formButton.addEventListener("click", handleFormSubmit);
   })
 );
-
-const handleCardClick = (card) =>
-  function () {
-    document.body.insertAdjacentHTML("beforeend", card);
-    window.document.body.classList.add("disable-scroll");
-
-    const backdrop = document.querySelector(".backdrop");
-    backdrop.addEventListener("click", handleBackdropClick);
-
-    const reset = () => {
-      document.querySelector(".modal").remove();
-      backdrop.removeEventListener("click", handleBackdropClick);
-      window.document.body.classList.remove("disable-scroll");
-    };
-
-    function handleBackdropClick(e) {
-      if (e.target !== backdrop) return;
-      reset();
-    }
-  };
 
 grandBuyCard.addEventListener("click", handleCardClick(grandBuyCardHTML));
 bookViewerCard.addEventListener("click", handleCardClick(bookViewerCardHTML));
