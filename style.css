@@ -151,6 +151,11 @@ body * {
   }
 }
 
+.lazy-load {
+  opacity: 0.5 !important;
+  transform: translateY(10%);
+}
+
 /************************** NAV **************************/
 
 .navbar {
@@ -337,6 +342,8 @@ body * {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 1;
+  transition: all 200ms;
 }
 
 .technology-name {
