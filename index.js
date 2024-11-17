@@ -31,7 +31,7 @@ console.log(tehcnologies);
 const contactForm = `
     <div class="modal">
       <div class="backdrop">
-        <form class="contact">
+        <form class="modal-card">
           <h2 class="contact__header">Kontakt</h2>
 
           <label for="#subject" class="contact__subject">Zadeva</label>
