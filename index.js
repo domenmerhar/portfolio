@@ -2,6 +2,7 @@
 
 import {
   addClassOnIntersection,
+  createToast,
   handleCardClick,
   handleMouseMove,
   removeClassOnIntersection,
@@ -132,20 +133,3 @@ netflixCloneCard.addEventListener(
 navObserver.observe(hero);
 footerObserver.observe(footer);
 lazyLoadable.forEach((t) => lazyLoadObserver.observe(t));
-
-function createToast(message) {
-  window.document.body.insertAdjacentHTML("beforeend", toast(message));
-  const toast = document.querySelector(".toast");
-
-  setTimeout(() => {
-    toast.classList.remove("hidden");
-
-    setTimeout(() => {
-      toast.classList.add("hidden");
-      toast.addEventListener("transitionend", function deleteToast() {
-        toast.remove();
-        toast.removeEventListener("transitionend", deleteToast);
-      });
-    }, toastDuration);
-  }, 100);
-}
