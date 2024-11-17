@@ -1,16 +1,5 @@
 import { toast as toastHTML } from "./view.js";
 
-export const addClassOnIntersection = (element, className) =>
-  function (entries) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        element.classList.add(className);
-      } else {
-        element.classList.remove(className);
-      }
-    });
-  };
-
 export const removeClassOnIntersection = (className) =>
   function (entries) {
     entries.forEach((entry) => {
@@ -62,3 +51,11 @@ export function createToast(message, toastDuration) {
     }, toastDuration);
   }, 100);
 }
+
+export const addRemoveClassOnIntersection = (element, className) =>
+  function (entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) return element.classList.add(className);
+      element.classList.remove(className);
+    });
+  };
