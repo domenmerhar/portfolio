@@ -2,7 +2,6 @@
 
 import {
   addRemoveClassOnIntersection,
-  createToast,
   handleCardClick,
   handleContactBtn,
   handleMouseMove,
@@ -14,8 +13,6 @@ import {
   grandBuyCardHTML,
   netflixCloneCardHTML,
 } from "./view.js";
-
-console.log({ bookViewerCardHTML });
 
 const toastDuration = 5000;
 
@@ -56,11 +53,13 @@ lazyLoadable.forEach((t) => {
 const navObserver = new IntersectionObserver(
   function (entries) {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) return navbar.classList.add("hidden");
-      navbar.classList.remove("hidden");
+      console.log(entry.isIntersecting);
+      if (entry.isIntersecting === false)
+        return navbar.classList.remove("hidden");
+      if (entry.isIntersecting) navbar.classList.add("hidden");
     });
   },
-  { threshold: 0.5 }
+  { threshold: 0.8 }
 );
 
 const footerObserver = new IntersectionObserver(
@@ -73,6 +72,21 @@ const lazyLoadObserver = new IntersectionObserver(
   { threshold: 0.5 }
 );
 
+const heroObserver = new IntersectionObserver(
+  function (entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        footerObserver.observe(footer);
+        navObserver.observe(hero);
+        heroObserver.unobserve(hero);
+      }
+    });
+  },
+  { threshold: 0.5 }
+);
+
+heroObserver.observe(hero);
+
 window.addEventListener("mousemove", handleMouseMove(mouseFollower));
 
 contactBtns.forEach(handleContactBtn(contactForm, toastDuration, email));
@@ -84,6 +98,4 @@ netflixCloneCard.addEventListener(
   handleCardClick(netflixCloneCardHTML)
 );
 
-navObserver.observe(hero);
-footerObserver.observe(footer);
 lazyLoadable.forEach((t) => lazyLoadObserver.observe(t));
