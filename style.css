@@ -637,6 +637,11 @@ body * {
   .timeline__right-container img {
     left: 10px;
   }
+
+  .timeline__left-container .timeline__icon,
+  .timeline__right-container .timeline__icon {
+    left: 8px;
+  }
 }
 
 /************************** FOOTER **************************/
