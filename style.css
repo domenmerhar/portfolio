@@ -165,7 +165,7 @@ body * {
   position: fixed;
   z-index: 3;
   bottom: 2.5%;
-  left: 50vw;
+  left: 50%;
 
   transform: translate(-50%);
 
@@ -217,6 +217,15 @@ body * {
 .navbar__btn:hover,
 .navbar__btn:active {
   transform: translateY(-4px) scale(1.1);
+}
+
+@media screen and (max-width: 34em) {
+  .navbar {
+    flex-wrap: wrap;
+    bottom: 5%;
+    gap: 4px;
+    justify-content: center;
+  }
 }
 
 /************************** HERO **************************/
@@ -287,6 +296,12 @@ body * {
 }
 
 /************************** ABOUT ME **************************/
+
+@media screen and (max-width: 68em) {
+  .about-me {
+    align-items: center;
+  }
+}
 
 .about-me {
   max-width: 50ch;
@@ -404,6 +419,7 @@ body * {
 }
 
 /************************** PROJECTS **************************/
+
 .projects {
 }
 
@@ -702,6 +718,7 @@ body * {
 .modal-card {
   background-color: var(--slate-800);
   border-radius: 15px;
+  max-width: 90vw;
 
   display: flex;
   flex-direction: column;
@@ -727,10 +744,10 @@ body * {
 }
 
 .contact__textarea {
-  width: 40rem;
   height: 20rem;
   max-width: 60rem;
   max-height: 90rem;
+  min-width: 33.5rem;
 
   border-radius: 10px;
   border: none;
