@@ -150,7 +150,6 @@ body * {
 /************************** NAV **************************/
 
 .navbar {
-  width: 50rem;
   height: 6.4rem;
 
   position: fixed;
@@ -163,9 +162,19 @@ body * {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3.2rem;
+  gap: 1.6rem;
   opacity: 1;
   transition: all 200ms;
+}
+
+.navbar svg {
+  width: 4rem;
+  height: 4rem;
+}
+
+.navbar[href="#projects"] svg {
+  width: 2.4rem !important;
+  height: 2.4rem !important;
 }
 
 .navbar.hidden {
@@ -180,7 +189,8 @@ body * {
 }
 
 .navbar__btn:link,
-.navbar__btn:visited {
+.navbar__btn:visited,
+.navbar__btn {
   display: flex;
   justify-content: center;
   align-items: center;
