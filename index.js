@@ -7,11 +7,30 @@ const footer = document.querySelector(".footer");
 const navbar = document.querySelector(".navbar");
 
 const mouseFollower = document.querySelector(".mouse-follower");
-
-const modal = document.querySelector(".modal");
 const contactBtns = document.querySelectorAll(".contact-email");
 
-const contactForm = `<div class="backdrop">
+const tehcnologies = document.querySelectorAll(".technology");
+const projects = document.querySelectorAll(".projects > div");
+const aboutMeParagraphs = document.querySelectorAll(".about-me p");
+const timeLineTextBoxes = document.querySelectorAll(".time-line__text-box");
+
+const lazyLoadable = [
+  ...tehcnologies,
+  ...projects,
+  ...aboutMeParagraphs,
+  ...timeLineTextBoxes,
+];
+
+lazyLoadable.forEach((t) => {
+  t.style.transition = "all 0.2s";
+  t.classList.add("lazy-load");
+});
+
+console.log(tehcnologies);
+
+const contactForm = `
+    <div class="modal">
+      <div class="backdrop">
         <form class="contact">
           <h2 class="contact__header">Kontakt</h2>
 
@@ -34,7 +53,8 @@ const contactForm = `<div class="backdrop">
 
           <button class="contact__button">Pošlji</button>
         </form>
-      </div>`;
+      </div>
+    </div>`;
 
 const navObserver = new IntersectionObserver(
   function (entries) {
@@ -59,8 +79,25 @@ const footerObserver = new IntersectionObserver(
   { threshold: 0.1 }
 );
 
-navObserver.observe(hero);
-footerObserver.observe(footer);
+const lazyLoadObserver = new IntersectionObserver(
+  function (entries) {
+    console.log(entries);
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.remove("lazy-load");
+    });
+  },
+  { threshold: 0.5 }
+);
+
+// const lazyLoadObserver = new IntersectionObserver(
+//   function (entries) {
+//     entries.forEach((entry) => {
+//       if (entry.isIntersecting) entry.classList.remove("hidden");
+//       console.log("interesecting");
+//     });
+//   },
+//   { threshold: 0.5 }
+// );
 
 window.addEventListener("mousemove", function (event) {
   const { height, width } = mouseFollower.getBoundingClientRect();
@@ -72,7 +109,7 @@ window.addEventListener("mousemove", function (event) {
 
 contactBtns.forEach((btn) =>
   btn.addEventListener("click", function () {
-    modal.innerHTML = contactForm;
+    document.body.insertAdjacentHTML("beforeend", contactForm);
     window.document.body.classList.add("disable-scroll");
 
     const subject = document.querySelector(".contact__input");
@@ -83,14 +120,13 @@ contactBtns.forEach((btn) =>
     const backdrop = document.querySelector(".backdrop");
 
     const reset = () => {
-      modal.innerHTML = "";
+      document.querySelector(".modal").remove();
       backdrop.removeEventListener("click", handleBackdropClick);
       window.document.body.classList.remove("disable-scroll");
     };
 
     function handleBackdropClick(e) {
       if (e.target !== backdrop) return;
-
       reset();
     }
 
@@ -118,3 +154,7 @@ contactBtns.forEach((btn) =>
     formButton.addEventListener("click", handleFormSubmit);
   })
 );
+
+navObserver.observe(hero);
+footerObserver.observe(footer);
+lazyLoadable.forEach((t) => lazyLoadObserver.observe(t));
