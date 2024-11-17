@@ -466,6 +466,33 @@ body * {
 
 .timeline {
   position: relative;
+  margin-bottom: 12.8rem;
+}
+
+.timeline__header {
+  font-size: 4.8rem;
+  font-weight: 800;
+  margin-bottom: 12.8rem;
+}
+
+.timeline__glow-left {
+  width: 200px;
+  height: 200px;
+  filter: blur(200px);
+  background-color: var(--slate-700);
+  position: absolute;
+  left: 25%;
+  top: 25%;
+}
+
+.timeline__glow-right {
+  width: 200px;
+  height: 200px;
+  filter: blur(200px);
+  background-color: var(--slate-700);
+  position: absolute;
+  left: 15%;
+  top: 15%;
 }
 
 .timeline__container {
@@ -497,6 +524,30 @@ body * {
   top: 32px;
 }
 
+.timeline__icon {
+  position: absolute;
+  width: 4.8rem;
+  height: 4.8rem;
+
+  border-radius: 50%;
+  right: -2.4rem;
+  top: 32px;
+
+  background: linear-gradient(45deg, var(--slate-600), var(--slate-700));
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeline__icon svg {
+  width: 4rem;
+}
+
+.timeline__right-container .timeline__icon {
+  left: -2.4rem;
+}
+
 .timeline__right-container img {
   left: -20px;
 }
@@ -506,7 +557,8 @@ body * {
   position: absolute;
   width: 6px;
   height: 100%;
-  background: white;
+  background: linear-gradient(var(--slate-400), var(--slate-700));
+  border-radius: 50px;
   top: 0;
   left: 50%;
   margin-left: -3px;
