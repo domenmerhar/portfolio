@@ -59,3 +59,50 @@ export const addRemoveClassOnIntersection = (element, className) =>
       element.classList.remove(className);
     });
   };
+
+export const handleContactBtn = (contactForm, toastDuration, email) => (btn) =>
+  btn.addEventListener("click", function () {
+    document.body.insertAdjacentHTML("beforeend", contactForm);
+    window.document.body.classList.add("disable-scroll");
+
+    const subject = document.querySelector(".contact__input");
+    const message = document.querySelector(".contact__textarea");
+    const subjectError = document.querySelector(".contact__subject-error");
+    const messageError = document.querySelector(".contact__message-error");
+    const formButton = document.querySelector(".contact__button");
+    const backdrop = document.querySelector(".backdrop");
+
+    const reset = () => {
+      document.querySelector(".modal").remove();
+      backdrop.removeEventListener("click", handleBackdropClick);
+      window.document.body.classList.remove("disable-scroll");
+    };
+
+    function handleBackdropClick(e) {
+      if (e.target !== backdrop) return;
+      reset();
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const subjectText = subject.value;
+      const messageText = message.value;
+
+      if (!subjectText) subjectError.textContent = "Zadeva je obvezna";
+      else subjectError.textContent = "";
+
+      if (!messageText) messageError.textContent = "Sporočilo je obvezno";
+      else messageError.textContent = "";
+
+      if (!subject.value || !message.value) return;
+
+      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(messageText)}`;
+
+      createToast("Sporočilo je bilo poslano", toastDuration);
+      reset();
+    }
+
+    backdrop.addEventListener("click", handleBackdropClick);
+    formButton.addEventListener("click", handleFormSubmit);
+  });
