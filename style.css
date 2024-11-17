@@ -718,12 +718,18 @@ body * {
 .modal-card {
   background-color: var(--slate-800);
   border-radius: 15px;
-  max-width: 90vw;
+  width: 50ch;
 
   display: flex;
   flex-direction: column;
   padding: 1.6rem 3.6rem;
   gap: 4px;
+}
+
+@media screen and (max-width: 50em) {
+  .modal-card {
+    max-width: 90vw;
+  }
 }
 
 .contact__header {
