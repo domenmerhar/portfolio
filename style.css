@@ -685,7 +685,6 @@ body * {
 }
 
 .contact__input {
-  margin-bottom: 8px;
   border-radius: 10px;
   border: none;
   padding: 8px 12px;
@@ -698,8 +697,6 @@ body * {
 }
 
 .contact__textarea {
-  margin-bottom: 24px;
-
   width: 40rem;
   height: 20rem;
   max-width: 60rem;
@@ -718,11 +715,24 @@ body * {
 .contact__subject {
 }
 
+.contact__subject-error {
+  margin-bottom: 8px;
+}
+
+.contact__subject-error,
+.contact__message-error {
+  color: var(--nest);
+  transition: all 200ms;
+}
+
 .contact__message {
 }
 
-.contact__button:link,
-.contact__button:visited {
+.contact__message-error {
+  margin-bottom: 24px;
+}
+
+.contact__button {
   text-align: center;
   text-decoration: none;
   background: transparent;
@@ -741,8 +751,7 @@ body * {
   transition: all 200ms;
 }
 
-.contact__button:hover,
-.contact__button:active {
+.contact__button {
   box-shadow: var(--blue-700) 0 0 20px 0px;
   text-shadow: var(--blue-700) 0px 0 30px;
 }
