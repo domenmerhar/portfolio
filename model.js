@@ -15,3 +15,11 @@ export const removeClassOnIntersection = (className) =>
       if (entry.isIntersecting) entry.target.classList.remove(className);
     });
   };
+
+export const handleMouseMove = (mouseFollower) => (event) => {
+  const { height, width } = mouseFollower.getBoundingClientRect();
+  const { clientX, clientY } = event;
+
+  mouseFollower.style.left = clientX - width / 2 + "px";
+  mouseFollower.style.top = clientY - height / 2 + "px";
+};
