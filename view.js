@@ -90,13 +90,7 @@ export const grandBuyCardHTML = `<div class="modal">
           </div>
 
           <p class="modal__description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio,
-            atque possimus deleniti sequi autem aspernatur. Assumenda saepe
-            tenetur explicabo amet mollitia molestias placeat at dolorum
-            pariatur doloribus nostrum, velit vel? Lorem ipsum, dolor sit amet
-            consectetur adipisicing elit. Corrupti aliquam repellendus suscipit
-            porro! Quos harum culpa, incidunt neque eligendi, totam autem illum
-            libero commodi facilis tempore voluptatem itaque voluptates quo.
+            Sodobno spletno aplikacijo za nakupovanje, ki uporabnikom omogoča enostavno brskanje, iskanje in nakup izdelkov. Aplikacija vključuje intuitiven uporabniški vmesnik, prilagodljivo iskalno funkcijo ter varno obdelavo plačil. 
           </p>
 
           <div class="modal-buttons">
