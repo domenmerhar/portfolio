@@ -1,7 +1,7 @@
 "use strict";
 
 import {
-  addClassOnIntersection,
+  addRemoveClassOnIntersection,
   createToast,
   handleCardClick,
   handleMouseMove,
@@ -63,7 +63,7 @@ const navObserver = new IntersectionObserver(
 );
 
 const footerObserver = new IntersectionObserver(
-  addClassOnIntersection(navbar, "hidden"),
+  addRemoveClassOnIntersection(navbar, "hidden"),
   { threshold: 0.1 }
 );
 
