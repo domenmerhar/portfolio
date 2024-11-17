@@ -9,7 +9,7 @@ const navbar = document.querySelector(".navbar");
 const mouseFollower = document.querySelector(".mouse-follower");
 
 const modal = document.querySelector(".modal");
-const contactBtn = document.querySelector(".cta__contact");
+const contactBtns = document.querySelectorAll(".contact-email");
 
 const contactForm = `<div class="backdrop">
         <form class="contact">
@@ -70,44 +70,46 @@ window.addEventListener("mousemove", function (event) {
   mouseFollower.style.top = clientY - height / 2 + "px";
 });
 
-contactBtn.addEventListener("click", function () {
-  modal.innerHTML = contactForm;
+contactBtns.forEach((btn) =>
+  btn.addEventListener("click", function () {
+    modal.innerHTML = contactForm;
 
-  const backdrop = document.querySelector(".backdrop");
-  function handleBackdropClick(e) {
-    if (e.target !== backdrop) return;
-    modal.innerHTML = "";
-    backdrop.removeEventListener("click", handleBackdropClick);
-  }
+    const backdrop = document.querySelector(".backdrop");
+    function handleBackdropClick(e) {
+      if (e.target !== backdrop) return;
+      modal.innerHTML = "";
+      backdrop.removeEventListener("click", handleBackdropClick);
+    }
 
-  backdrop.addEventListener("click", handleBackdropClick);
+    backdrop.addEventListener("click", handleBackdropClick);
 
-  const subject = document.querySelector(".contact__input");
-  const message = document.querySelector(".contact__textarea");
+    const subject = document.querySelector(".contact__input");
+    const message = document.querySelector(".contact__textarea");
 
-  const subjectError = document.querySelector(".contact__subject-error");
-  const messageError = document.querySelector(".contact__message-error");
+    const subjectError = document.querySelector(".contact__subject-error");
+    const messageError = document.querySelector(".contact__message-error");
 
-  const formButton = document.querySelector(".contact__button");
+    const formButton = document.querySelector(".contact__button");
 
-  function handleFormSubmit(e) {
-    e.preventDefault();
+    function handleFormSubmit(e) {
+      e.preventDefault();
 
-    const subjectText = subject.value;
-    const messageText = message.value;
+      const subjectText = subject.value;
+      const messageText = message.value;
 
-    if (!subjectText) subjectError.textContent = "Zadeva je obvezna";
-    else subjectError.textContent = "";
+      if (!subjectText) subjectError.textContent = "Zadeva je obvezna";
+      else subjectError.textContent = "";
 
-    if (!messageText) messageError.textContent = "Sporočilo je obvezno";
-    else messageError.textContent = "";
+      if (!messageText) messageError.textContent = "Sporočilo je obvezno";
+      else messageError.textContent = "";
 
-    if (!subject.value || !message.value) return;
+      if (!subject.value || !message.value) return;
 
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(messageText)}`;
-    modal.innerHTML = "";
-    backdrop.removeEventListener("click", handleFormSubmit);
-  }
+      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(messageText)}`;
+      modal.innerHTML = "";
+      backdrop.removeEventListener("click", handleFormSubmit);
+    }
 
-  formButton.addEventListener("click", handleFormSubmit);
-});
+    formButton.addEventListener("click", handleFormSubmit);
+  })
+);
