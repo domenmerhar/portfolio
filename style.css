@@ -693,7 +693,7 @@ body * {
   align-items: center;
 }
 
-.contact {
+.modal-card {
   background-color: var(--slate-800);
   border-radius: 15px;
 
@@ -778,4 +778,86 @@ body * {
 .contact__button {
   box-shadow: var(--blue-700) 0 0 20px 0px;
   text-shadow: var(--blue-700) 0px 0 30px;
+}
+
+/************************** MODAL PROJECT  **************************/
+
+.modal__project-image {
+  width: 54rem;
+  margin-bottom: 12px;
+  border-radius: inherit;
+}
+
+.modal__project-header {
+  font-size: 4.8rem;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.modal__project-technologies {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+}
+
+.modal__project-technology {
+  position: relative;
+}
+
+.project-technology__image {
+  width: 4.8rem;
+}
+
+.glow--small {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  filter: blur(70px);
+}
+
+.modal__description {
+  width: 50ch;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.modal-button:link,
+.modal-button:visited,
+.modal-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+
+  text-decoration: none;
+  color: var(--slate-100);
+
+  background: linear-gradient(45deg, var(--slate-900), var(--slate-950));
+  transition: all 200ms;
+}
+
+.modal-button:hover,
+.modal-button:active {
+  transform: translateY(-4px) scale(1.1);
+}
+
+.modal-button svg {
+  width: 4rem;
+  height: 4rem;
 }
