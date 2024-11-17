@@ -115,7 +115,7 @@ contactBtns.forEach((btn) =>
 
       window.location.href = `mailto:${email}?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(messageText)}`;
 
-      createToast("Sporočilo je bilo poslano");
+      createToast("Sporočilo je bilo poslano", toastDuration);
       reset();
     }
 
