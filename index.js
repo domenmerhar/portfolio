@@ -1,5 +1,7 @@
 "use strict";
 
+const toastDuration = 5000;
+
 const email = "johndoe@gmail.com";
 
 const hero = document.querySelector(".hero");
@@ -34,7 +36,11 @@ lazyLoadable.forEach((t) => {
   t.classList.add("lazy-load");
 });
 
-console.log(tehcnologies);
+const toast = (message) => `
+  <div class="toast hidden">
+      <div class="toast__glow"></div>
+      ${message}
+    </div>`;
 
 const contactForm = `
     <div class="modal">
@@ -487,3 +493,21 @@ netflixCloneCard.addEventListener(
 navObserver.observe(hero);
 footerObserver.observe(footer);
 lazyLoadable.forEach((t) => lazyLoadObserver.observe(t));
+
+window.document.body.insertAdjacentHTML("beforeend", toast("Dobrodošli!"));
+
+(async function () {
+  const toast = document.querySelector(".toast");
+
+  setTimeout(() => {
+    toast.classList.remove("hidden");
+
+    setTimeout(() => {
+      toast.classList.add("hidden");
+      toast.addEventListener("transitionend", function deleteToast() {
+        toast.remove();
+        toast.removeEventListener("transitionend", deleteToast);
+      });
+    }, toastDuration);
+  }, 100);
+})();
