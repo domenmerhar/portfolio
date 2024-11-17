@@ -1,3 +1,5 @@
+import { toast as toastHTML } from "./view.js";
+
 export const addClassOnIntersection = (element, className) =>
   function (entries) {
     entries.forEach((entry) => {
@@ -43,3 +45,20 @@ export const handleCardClick = (card) =>
       reset();
     }
   };
+
+export function createToast(message, toastDuration) {
+  window.document.body.insertAdjacentHTML("beforeend", toastHTML(message));
+  const toast = document.querySelector(".toast");
+
+  setTimeout(() => {
+    toast.classList.remove("hidden");
+
+    setTimeout(() => {
+      toast.classList.add("hidden");
+      toast.addEventListener("transitionend", function deleteToast() {
+        toast.remove();
+        toast.removeEventListener("transitionend", deleteToast);
+      });
+    }, toastDuration);
+  }, 100);
+}
