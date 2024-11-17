@@ -456,6 +456,7 @@ contactBtns.forEach((btn) =>
 
       window.location.href = `mailto:${email}?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(messageText)}`;
 
+      createToast("Sporočilo je bilo poslano");
       reset();
     }
 
@@ -494,9 +495,8 @@ navObserver.observe(hero);
 footerObserver.observe(footer);
 lazyLoadable.forEach((t) => lazyLoadObserver.observe(t));
 
-window.document.body.insertAdjacentHTML("beforeend", toast("Dobrodošli!"));
-
-(async function () {
+function createToast(message) {
+  window.document.body.insertAdjacentHTML("beforeend", toast(message));
   const toast = document.querySelector(".toast");
 
   setTimeout(() => {
@@ -510,4 +510,4 @@ window.document.body.insertAdjacentHTML("beforeend", toast("Dobrodošli!"));
       });
     }, toastDuration);
   }, 100);
-})();
+}
