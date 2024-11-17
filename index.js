@@ -89,16 +89,6 @@ const lazyLoadObserver = new IntersectionObserver(
   { threshold: 0.5 }
 );
 
-// const lazyLoadObserver = new IntersectionObserver(
-//   function (entries) {
-//     entries.forEach((entry) => {
-//       if (entry.isIntersecting) entry.classList.remove("hidden");
-//       console.log("interesecting");
-//     });
-//   },
-//   { threshold: 0.5 }
-// );
-
 window.addEventListener("mousemove", function (event) {
   const { height, width } = mouseFollower.getBoundingClientRect();
   const { clientX, clientY } = event;
@@ -109,6 +99,7 @@ window.addEventListener("mousemove", function (event) {
 
 contactBtns.forEach((btn) =>
   btn.addEventListener("click", function () {
+    console.log("clicked");
     document.body.insertAdjacentHTML("beforeend", contactForm);
     window.document.body.classList.add("disable-scroll");
 
