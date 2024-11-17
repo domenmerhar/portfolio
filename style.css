@@ -863,3 +863,34 @@ body * {
   width: 4rem;
   height: 4rem;
 }
+
+/************************** TOAST  **************************/
+.toast {
+  border-radius: 10px;
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: linear-gradient(45deg, var(--slate-900), var(--slate-950));
+  transition: all 200ms;
+  max-width: 50rem;
+  padding: 1.6rem 3.6rem;
+}
+
+.toast__glow {
+  background-color: var(--slate-600);
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  filter: blur(50px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.toast.hidden {
+  opacity: 0;
+  transform: translate(-50%, -10%);
+}
