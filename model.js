@@ -23,3 +23,23 @@ export const handleMouseMove = (mouseFollower) => (event) => {
   mouseFollower.style.left = clientX - width / 2 + "px";
   mouseFollower.style.top = clientY - height / 2 + "px";
 };
+
+export const handleCardClick = (card) =>
+  function () {
+    document.body.insertAdjacentHTML("beforeend", card);
+    window.document.body.classList.add("disable-scroll");
+
+    const backdrop = document.querySelector(".backdrop");
+    backdrop.addEventListener("click", handleBackdropClick);
+
+    const reset = () => {
+      document.querySelector(".modal").remove();
+      backdrop.removeEventListener("click", handleBackdropClick);
+      window.document.body.classList.remove("disable-scroll");
+    };
+
+    function handleBackdropClick(e) {
+      if (e.target !== backdrop) return;
+      reset();
+    }
+  };
