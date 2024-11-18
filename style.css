@@ -24,6 +24,28 @@
   --html: #e44d26;
 }
 
+body.light-mode {
+  --slate-100: #020617;
+  --slate-200: #0f172a;
+  --slate-300: #1e293b;
+  --slate-400: #334155;
+  --slate-500: #475569;
+  --slate-600: #64748b;
+  --slate-700: #94a3b8;
+  --slate-800: #cbd5e1;
+  --slate-900: #e2e8f0;
+  --slate-950: #f1f5f9;
+
+  --blue-900: #1e3a8a;
+  --blue-800: #1e40af;
+  --blue-700: #1d4ed8;
+  --blue-600: #2563eb;
+  --blue-400: #60a5fa;
+
+  --react: #306a7a;
+  --node: #265424;
+}
+
 *,
 *::before,
 *::after {
@@ -46,6 +68,10 @@ body {
 
   font-size: 1.6rem;
   overflow-x: hidden;
+}
+
+body.light-mode {
+  background: linear-gradient(45deg, var(--slate-900), var(--slate-700));
 }
 
 body.disable-scroll {
@@ -394,6 +420,12 @@ body * {
   z-index: 1;
 }
 
+body.light-mode .glow {
+  width: 250px;
+  height: 250px;
+  filter: blur(75px);
+}
+
 .react-glow {
   background: linear-gradient(45deg, var(--react), transparent);
 }
@@ -726,6 +758,10 @@ body * {
   gap: 4px;
 }
 
+body.light-mode .modal-card {
+  background: linear-gradient(45deg, var(--slate-800), var(--slate-700));
+}
+
 @media screen and (max-width: 50em) {
   .modal-card {
     max-width: 90vw;
@@ -849,6 +885,10 @@ body * {
   height: 8rem;
   border-radius: 50%;
   filter: blur(50px);
+}
+
+body.light-mode .glow--small {
+  filter: blur(25px);
 }
 
 .modal__description {
