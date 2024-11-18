@@ -49,10 +49,8 @@ const lazyLoadable = [
   ...timeLineTextBoxes,
 ];
 
-document.body.classList.toggle(
-  "light-mode",
-  localStorage.getItem("light-mode") === "true"
-);
+if (localStorage.getItem("light-mode") === "true")
+  document.body.classList.add("light-mode");
 
 lazyLoadable.forEach((t) => {
   t.style.transition = "all 0.2s";
@@ -122,7 +120,7 @@ themeEffect.addEventListener("transitionend", () => {
 
   localStorage.setItem(
     "light-mode",
-    `${!document.body.classList.contains("light-mode")}`
+    `${document.body.classList.contains("light-mode")}`
   );
 });
 
