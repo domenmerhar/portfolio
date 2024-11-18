@@ -22,6 +22,8 @@
   --typescript: #007acc;
   --css: #264de4;
   --html: #e44d26;
+
+  --theme-effect: #64748b;
 }
 
 body.light-mode {
@@ -149,7 +151,7 @@ hr {
 
 .mouse-follower {
   background: linear-gradient(45deg, var(--blue-900), var(--blue-800));
-  animation: 20s move infinite;
+  /* animation: 20s move infinite; */
   filter: blur(200px);
 
   width: 300px;
@@ -165,7 +167,7 @@ body * {
   z-index: 2;
 }
 
-@keyframes move {
+/* @keyframes move {
   0% {
     rotate: 0;
   }
@@ -175,11 +177,26 @@ body * {
   100% {
     rotate: 0;
   }
-}
+} */
 
 .lazy-load {
   opacity: 0.5 !important;
   transform: translateY(10%);
+}
+
+.theme-effect {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--theme-effect);
+  position: fixed;
+  right: -50%;
+  bottom: -100%;
+  transition: transform 600ms ease-in-out 200ms;
+}
+
+.theme-effect.expand {
+  transform: scale(100);
 }
 
 /************************** NAV **************************/
