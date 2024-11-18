@@ -11,7 +11,9 @@ import {
   bookViewerCardHTML,
   contactForm,
   grandBuyCardHTML,
+  moonSVG,
   netflixCloneCardHTML,
+  sunSVG,
 } from "./view.js";
 
 const toastDuration = 5000;
@@ -49,9 +51,10 @@ const lazyLoadable = [
   ...timeLineTextBoxes,
 ];
 
-if (localStorage.getItem("light-mode") === "true")
+if (localStorage.getItem("light-mode") === "true") {
   document.body.classList.add("light-mode");
-
+  themeSwitcher.innerHTML = moonSVG;
+}
 lazyLoadable.forEach((t) => {
   t.style.transition = "all 0.2s";
   t.classList.add("lazy-load");
@@ -114,9 +117,13 @@ themeEffect.addEventListener("transitionend", () => {
 
   if (transitionEffectCounter % 2 === 0) return;
 
-  document.body.classList.contains("light-mode")
-    ? document.body.classList.remove("light-mode")
-    : document.body.classList.add("light-mode");
+  if (document.body.classList.contains("light-mode")) {
+    document.body.classList.remove("light-mode");
+    themeSwitcher.innerHTML = sunSVG;
+  } else {
+    document.body.classList.add("light-mode");
+    themeSwitcher.innerHTML = moonSVG;
+  }
 
   localStorage.setItem(
     "light-mode",
