@@ -38,12 +38,21 @@ const netflixCloneCard = document.querySelector(
   ".project__card-small:last-of-type"
 );
 
+let transitionEffectCounter = 0;
+const themeSwitcher = document.querySelector(".theme-switcher");
+const themeEffect = document.querySelector(".theme-effect");
+
 const lazyLoadable = [
   ...tehcnologies,
   ...projects,
   ...aboutMeParagraphs,
   ...timeLineTextBoxes,
 ];
+
+document.body.classList.toggle(
+  "light-mode",
+  localStorage.getItem("light-mode") === "true"
+);
 
 lazyLoadable.forEach((t) => {
   t.style.transition = "all 0.2s";
@@ -53,7 +62,6 @@ lazyLoadable.forEach((t) => {
 const navObserver = new IntersectionObserver(
   function (entries) {
     entries.forEach((entry) => {
-      console.log(entry.isIntersecting);
       if (entry.isIntersecting === false)
         return navbar.classList.remove("hidden");
       if (entry.isIntersecting) navbar.classList.add("hidden");
@@ -97,5 +105,25 @@ netflixCloneCard.addEventListener(
   "click",
   handleCardClick(netflixCloneCardHTML)
 );
+
+themeSwitcher.addEventListener("click", () => {
+  themeEffect.classList.add("expand");
+});
+
+themeEffect.addEventListener("transitionend", () => {
+  themeEffect.classList.remove("expand");
+  transitionEffectCounter++;
+
+  if (transitionEffectCounter % 2 === 0) return;
+
+  document.body.classList.contains("light-mode")
+    ? document.body.classList.remove("light-mode")
+    : document.body.classList.add("light-mode");
+
+  localStorage.setItem(
+    "light-mode",
+    `${!document.body.classList.contains("light-mode")}`
+  );
+});
 
 lazyLoadable.forEach((t) => lazyLoadObserver.observe(t));
