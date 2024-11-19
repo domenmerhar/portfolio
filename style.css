@@ -155,6 +155,10 @@ hr {
   z-index: 1;
 }
 
+body.light-mode .mouse-follower {
+  background: var(--blue-400);
+}
+
 body * {
   position: relative;
   z-index: 2;
@@ -279,7 +283,7 @@ body * {
 @media screen and (max-width: 34em) {
   .navbar {
     flex-wrap: wrap;
-    bottom: 5%;
+    bottom: 10%;
     gap: 4px;
     justify-content: center;
   }
