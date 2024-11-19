@@ -107,6 +107,11 @@ netflixCloneCard.addEventListener(
   handleCardClick(netflixCloneCardHTML)
 );
 
+window.addEventListener("load", () => {
+  document.body.classList.remove("disable-scroll");
+  document.querySelector(".preloader").remove();
+});
+
 themeSwitcher.addEventListener("click", () => {
   themeEffect.classList.add("expand");
 });
