@@ -90,7 +90,7 @@ export const grandBuyCardHTML = `<div class="modal">
           </div>
 
           <p class="modal__description">
-            Sodobno spletno aplikacijo za nakupovanje, ki uporabnikom omogoča enostavno brskanje, iskanje in nakup izdelkov. Aplikacija vključuje intuitiven uporabniški vmesnik, prilagodljivo iskalno funkcijo ter varno obdelavo plačil. 
+            Sodobna spletna aplikacija za nakupovanje, ki uporabnikom omogoča enostavno brskanje, iskanje in nakup izdelkov. Aplikacija vključuje intuitiven uporabniški vmesnik, prilagodljivo iskalno funkcijo ter varno obdelavo plačil. 
           </p>
 
           <div class="modal-buttons">
@@ -163,7 +163,7 @@ export const bookViewerCardHTML = `<div class="modal">
           </div>
 
           <p class="modal__description">
-            je spletna knjižnična aplikacija, ki omogoča dostop do obsežne zbirke knjig. Uporabniki lahko brskajo po različnih kategorijah in žanrih, iščejo določene knjige ter ustvarijo svojo osebno knjižnico priljubljenih knjig.
+            BookViewer je spletna knjižnična aplikacija, ki omogoča dostop do obsežne zbirke knjig. Uporabniki lahko brskajo po različnih kategorijah in žanrih, iščejo določene knjige ter ustvarijo svojo osebno knjižnico priljubljenih knjig.
           </p>
 
           <div class="modal-buttons">
