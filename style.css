@@ -94,13 +94,6 @@ select {
   color: inherit;
 }
 
-/* input {
-  border: none;
-  border-radius: 5px;
-  padding: 4px 6px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-} */
-
 input:focus {
   outline: 2px solid var(--gray-8);
 }
@@ -146,7 +139,7 @@ section {
 
 hr {
   height: 1px;
-  color: var(--slate-700);
+  color: var(--blue-700);
 }
 
 .mouse-follower {
@@ -167,17 +160,14 @@ body * {
   z-index: 2;
 }
 
-/* @keyframes move {
-  0% {
-    rotate: 0;
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
-  50% {
-    rotate: 360deg;
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
-  100% {
-    rotate: 0;
-  }
-} */
+}
 
 .lazy-load {
   opacity: 0.5 !important;
@@ -197,6 +187,30 @@ body * {
 
 .theme-effect.expand {
   transform: scale(100);
+}
+
+.preloader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--theme-effect);
+  z-index: 1000;
+}
+
+.preloader::after {
+  content: "";
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 10rem;
+  width: 10rem;
+  border: 15px solid var(--blue-400);
+  border-top-color: var(--blue-700);
+  border-radius: 50%;
+
+  animation: rotate 1s ease-in-out infinite;
 }
 
 /************************** NAV **************************/
