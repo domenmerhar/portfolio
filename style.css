@@ -139,7 +139,7 @@ section {
 
 hr {
   height: 1px;
-  color: var(--blue-700);
+  color: var(--slate-700);
 }
 
 .mouse-follower {
